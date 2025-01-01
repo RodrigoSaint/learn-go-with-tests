@@ -6,9 +6,9 @@ const (
 	englishGreetingPrefix = "Hello "
 	spanishGreetingPrefix = "Hola "
 	frenchGreetingPrefix  = "Bonjour "
-	spanish               = "spanish"
-	english               = "english"
-	french                = "french"
+	Spanish               = "spanish"
+	English               = "english"
+	French                = "french"
 )
 
 func Hello(name string, language string) string {
@@ -21,9 +21,9 @@ func Hello(name string, language string) string {
 
 func getLanguageGreeting(language string) (greeting string) {
 	switch language {
-	case spanish:
+	case Spanish:
 		greeting = spanishGreetingPrefix
-	case french:
+	case French:
 		greeting = frenchGreetingPrefix
 	default:
 		greeting = englishGreetingPrefix
@@ -32,5 +32,5 @@ func getLanguageGreeting(language string) (greeting string) {
 }
 
 func main() {
-	fmt.Println(Hello("Rodrigo", ""))
+	fmt.Println(Hello("Rodrigo", English))
 }
