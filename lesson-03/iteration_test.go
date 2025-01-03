@@ -4,12 +4,12 @@ import "testing"
 
 func BenchmarkRepeat(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Repeat("a")
+		Repeat("a", 4)
 	}
 }
 
 func TestRepeating(t *testing.T) {
-	given := Repeat("a")
+	given := Repeat("a", 4)
 	expected := "aaaa"
 
 	if given != expected {
