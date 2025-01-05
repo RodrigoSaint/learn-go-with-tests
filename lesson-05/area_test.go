@@ -6,7 +6,7 @@ func compareArea(t *testing.T, shape Shape, expected float32) {
 	got := shape.Area()
 
 	if got != expected {
-		t.Errorf("Expected %f got %f", expected, got)
+		t.Errorf("%#v area Expected %f got %f", shape, expected, got)
 	}
 }
 
