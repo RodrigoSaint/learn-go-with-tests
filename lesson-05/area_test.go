@@ -2,21 +2,22 @@ package area
 
 import "testing"
 
-func TestAreaReactangle(t *testing.T) {
-	rec := Rectangle{Width: 10, Height: 10}
-	got := rec.Area()
-	var expected float32 = 100.0
+func compareArea(t *testing.T, shape Shape, expected float32) {
+	got := shape.Area()
 
 	if got != expected {
 		t.Errorf("Expected %f got %f", expected, got)
 	}
 }
 
+func TestAreaReactangle(t *testing.T) {
+	rec := Rectangle{Width: 10, Height: 10}
+	var expected float32 = 100.0
+	compareArea(t, rec, expected)
+}
+
 func TestCircleArea(t *testing.T) {
 	circ := Circle{Radius: 2}
-	got := circ.Area()
 	var expected float32 = 12.566371
-	if got != expected {
-		t.Errorf("Expected %f got %f", expected, got)
-	}
+	compareArea(t, circ, expected)
 }
