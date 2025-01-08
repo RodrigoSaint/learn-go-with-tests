@@ -1,6 +1,9 @@
 package wallet
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Bitcoin float64
 
@@ -20,8 +23,13 @@ func (wallet *Wallet) Deposit(amount Bitcoin) {
 	wallet.balance += amount
 }
 
-func (wallet *Wallet) Withdraw(amount Bitcoin) {
+func (wallet *Wallet) Withdraw(amount Bitcoin) error {
+
+	if amount > wallet.balance {
+		return errors.New("Insuficient funds")
+	}
 	wallet.balance -= amount
+	return nil
 }
 
 func (wallet *Wallet) Balance() Bitcoin {
